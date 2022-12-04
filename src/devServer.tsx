@@ -56,4 +56,7 @@ async function createServer() {
   app.listen(4000)
 }
 
+Deno.run({
+  cmd: ['deno', 'run', '-A', '--watch', './src/server.tsx']
+})
 createServer()

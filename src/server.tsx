@@ -26,6 +26,7 @@ function Skeleton() {
 
 async function handler(req: Request) {
   const reactStream = await ReactDOM.renderToReadableStream(<Skeleton />)
+  await reactStream.allReady
 
   const viteInject = JSON.parse(
     req.headers.get('x-vite-inject')!
