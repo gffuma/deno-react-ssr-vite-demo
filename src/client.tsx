@@ -3,7 +3,11 @@ import React from 'react'
 // @deno-types="https://cdn.jsdelivr.net/npm/@types/react-dom@18.0.9/client.d.ts"
 import ReactDOM from 'react-dom/client'
 import App from './components/App.tsx'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import {
+  QueryClient,
+  QueryClientProvider,
+  hydrate,
+} from '@tanstack/react-query'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,6 +25,12 @@ const queryClient = new QueryClient({
     },
   },
 })
+
+// Hydrate data from SSR
+hydrate(
+  queryClient,
+  JSON.parse(document.querySelector('script.ssr_data')!.textContent!)
+)
 
 ReactDOM.hydrateRoot(
   document.getElementById('root')!,
