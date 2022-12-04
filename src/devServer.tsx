@@ -98,9 +98,10 @@ async function createServer() {
 
   app.use(vite.middlewares)
 
-  app.use(
+  app.all(
     '*',
     proxy('http://localhost:5099', {
+      parseReqBody: false,
       proxyReqOptDecorator: async (opts, req) => {
         // Wait Deno Servert to restart before proxy the request
         await serverController.promise

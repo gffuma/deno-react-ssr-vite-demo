@@ -36,11 +36,7 @@ function normalizeHooks(hooks: InjectHTMLHook[]) {
 
   hooks.reduce((out, hook) => {
     const keys = Object.keys(hook) as Array<keyof InjectHTMLHook>
-    keys.forEach((k) => {
-      if (hook[k]) {
-        out[k].push(hook[k]!)
-      }
-    })
+    keys.forEach((k) => out[k].push(hook[k]!))
     return out
   }, normalized)
 

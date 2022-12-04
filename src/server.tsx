@@ -1,4 +1,5 @@
 import { serve } from 'https://deno.land/std@0.167.0/http/server.ts'
+import { serveFile } from 'https://deno.land/std@0.167.0/http/file_server.ts'
 // @deno-types="https://cdn.jsdelivr.net/npm/@types/react-dom@18.0.9/server.d.ts"
 import ReactDOM from 'react-dom/server'
 import App from './components/App.tsx'
@@ -8,6 +9,7 @@ import {
   QueryClientProvider,
   dehydrate,
 } from '@tanstack/react-query'
+import { Router } from 'itty-router'
 
 interface ViteInjectPayload {
   head: string
@@ -24,7 +26,20 @@ function getViteDevInjectHook(req: Request): InjectHTMLHook {
   }
 }
 
-async function handler(req: Request) {
+const router = Router()
+
+router.get('/favicon.ico', async (req: Request) => {
+  return await serveFile(
+    req,
+    `${Deno.cwd()}/public${new URL(req.url).pathname}`
+  )
+})
+
+router.get('/assets/*', async (req: Request) => {
+  return await serveFile(req, `${Deno.cwd()}/dist${new URL(req.url).pathname}`)
+})
+
+router.get('*', async (req: Request) => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -72,6 +87,6 @@ async function handler(req: Request) {
       'content-type': 'text/html;charset=UTF-8',
     },
   })
-}
+})
 
-await serve(handler, { port: 5099 })
+await serve(router.handle, { port: 5099 })
