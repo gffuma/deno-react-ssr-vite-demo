@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": [
+      "deno.window",
+      "dom"
+    ],
+    "jsxImportSource": "npm:react"
+  },
+  "tasks": {
+    "dev": "deno run -A --unstable --node-modules-dir src/devServer.tsx",
+    "dev2": "deno run -A --unstable --node-modules-dir npm:vite"
+  },
+  "importMap": "import_map.json"
+}
