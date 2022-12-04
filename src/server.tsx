@@ -2,15 +2,17 @@ import { serve } from 'https://deno.land/std@0.167.0/http/server.ts'
 import { serveFile } from 'https://deno.land/std@0.167.0/http/file_server.ts'
 // @deno-types="https://cdn.jsdelivr.net/npm/@types/react-dom@18.0.9/server.d.ts"
 import ReactDOM from 'react-dom/server'
-import App from './components/App.tsx'
-import { createHTMLStreamTransformer, InjectHTMLHook } from './streamUtils.ts'
+import { StaticRouter } from 'react-router-dom/server'
+import { Router } from 'itty-router'
 import {
   QueryClient,
   QueryClientProvider,
   dehydrate,
 } from '@tanstack/react-query'
-import { Router } from 'itty-router'
+import App from './components/App.tsx'
+import { createHTMLStreamTransformer } from './streamUtils.ts'
 import { getViteInjectHook } from './viteInject.ts'
+import { APP_SERVER_PORT } from './consts.ts'
 
 const router = Router()
 
@@ -43,9 +45,11 @@ router.get('*', async (req: Request) => {
       <head />
       <body>
         <div id="root">
-          <QueryClientProvider client={queryClient}>
-            <App />
-          </QueryClientProvider>
+          <StaticRouter location={new URL(req.url).pathname}>
+            <QueryClientProvider client={queryClient}>
+              <App />
+            </QueryClientProvider>
+          </StaticRouter>
         </div>
       </body>
     </html>
@@ -71,4 +75,4 @@ router.get('*', async (req: Request) => {
   })
 })
 
-await serve(router.handle, { port: 5099 })
+await serve(router.handle, { port: APP_SERVER_PORT })

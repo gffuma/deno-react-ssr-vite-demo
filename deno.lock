@@ -34,6 +34,7 @@
       "ky@^0.32.2": "ky@0.32.2",
       "react": "react@18.2.0",
       "react-dom@^18.2.0": "react-dom@18.2.0_react@18.2.0",
+      "react-router-dom@^6.4.4": "react-router-dom@6.4.4_react@18.2.0_react-dom@18.2.0__react@18.2.0",
       "react@^18.2.0": "react@18.2.0",
       "vite": "vite@3.2.4",
       "vite@^3.1.3": "vite@3.2.4"
@@ -294,6 +295,10 @@
           "@jridgewell/resolve-uri": "@jridgewell/resolve-uri@3.1.0",
           "@jridgewell/sourcemap-codec": "@jridgewell/sourcemap-codec@1.4.14"
         }
+      },
+      "@remix-run/router@1.0.4": {
+        "integrity": "sha512-gTL8H5USTAKOyVA4xczzDJnC3HMssdFa3tRlwBicXynx9XfiXwneHnYQogwSKpdCkjXISrEKSTtX62rLpNEVQg==",
+        "dependencies": {}
       },
       "@tanstack/query-core@4.19.1": {
         "integrity": "sha512-Zp0aIose5C8skBzqbVFGk9HJsPtUhRVDVNWIqVzFbGQQgYSeLZMd3Sdb4+EnA5wl1J7X+bre2PJGnQg9x/zHOA==",
@@ -982,6 +987,22 @@
       "react-refresh@0.14.0": {
         "integrity": "sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==",
         "dependencies": {}
+      },
+      "react-router-dom@6.4.4_react@18.2.0_react-dom@18.2.0__react@18.2.0": {
+        "integrity": "sha512-0Axverhw5d+4SBhLqLpzPhNkmv7gahUwlUVIOrRLGJ4/uwt30JVajVJXqv2Qr/LCwyvHhQc7YyK1Do8a9Jj7qA==",
+        "dependencies": {
+          "@remix-run/router": "@remix-run/router@1.0.4",
+          "react": "react@18.2.0",
+          "react-dom": "react-dom@18.2.0_react@18.2.0",
+          "react-router": "react-router@6.4.4_react@18.2.0"
+        }
+      },
+      "react-router@6.4.4_react@18.2.0": {
+        "integrity": "sha512-SA6tSrUCRfuLWeYsTJDuriRqfFIsrSvuH7SqAJHegx9ZgxadE119rU8oOX/rG5FYEthpdEaEljdjDlnBxvfr+Q==",
+        "dependencies": {
+          "@remix-run/router": "@remix-run/router@1.0.4",
+          "react": "react@18.2.0"
+        }
       },
       "react@18.2.0": {
         "integrity": "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==",

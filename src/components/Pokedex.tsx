@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import ky from 'ky'
 import { useQuery } from '@tanstack/react-query'
+import { Link } from 'react-router-dom'
 
 interface PokemonListItem {
   name: string
@@ -22,7 +23,7 @@ export default function Pokedex() {
   return (
     <div>
       <h1>Deno Pokedex!</h1>
-      <div className='top-pokedex'>
+      <div className="top-pokedex">
         <img className="salamence" />
         <button onClick={() => setCounter(counter + 1)}>
           Very Counter: {counter}
@@ -30,9 +31,9 @@ export default function Pokedex() {
       </div>
       {pokemons.map((pokemon) => (
         <div key={pokemon.name} className="pokemon-list-item">
-          {/* <Link to={`/pokemon/${pokemon.name}`}> */}
-          <h2>{pokemon.name}</h2>
-          {/* </Link> */}
+          <Link to={`/pokemon/${pokemon.name}`}>
+            <h2>{pokemon.name}</h2>
+          </Link>
         </div>
       ))}
     </div>

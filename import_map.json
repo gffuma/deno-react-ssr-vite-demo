@@ -5,6 +5,8 @@
     "react-dom/server": "npm:react-dom@^18.2.0/server",
     "ky": "npm:ky@^0.32.2",
     "@tanstack/react-query": "npm:@tanstack/react-query@^4.19.1",
-    "itty-router": "npm:itty-router@^2.4.0"
+    "itty-router": "npm:itty-router@^2.4.0",
+    "react-router-dom/server" : "npm:react-router-dom@^6.4.4/server.js",
+    "react-router-dom" : "npm:react-router-dom@^6.4.4"
   }
 }

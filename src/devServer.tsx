@@ -6,6 +6,7 @@ import {
   createServer as createViteServer,
   ViteDevServer,
 } from 'npm:vite@^3.1.3'
+import { DEV_SERVER_PORT, APP_SERVER_PORT } from './consts.ts'
 
 function parseHeadFromHTML(html: string) {
   const start = '<head>'
@@ -100,7 +101,7 @@ async function createServer() {
 
   app.all(
     '*',
-    proxy('http://localhost:5099', {
+    proxy(`http://localhost:${APP_SERVER_PORT}`, {
       parseReqBody: false,
       proxyReqOptDecorator: async (opts, req) => {
         // Wait Deno Servert to restart before proxy the request
@@ -113,8 +114,8 @@ async function createServer() {
     })
   )
 
-  app.listen(4000, () => {
-    console.log('App Ready on: http://localhost:4000/')
+  app.listen(DEV_SERVER_PORT, () => {
+    console.log(`App Ready on: http://localhost:${DEV_SERVER_PORT}/`)
   })
 }
 
