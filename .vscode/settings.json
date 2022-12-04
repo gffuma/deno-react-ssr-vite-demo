@@ -2,5 +2,6 @@
   "deno.enable": true,
   "deno.unstable": false,
   "deno.lint": true,
-  "deno.config": "deno.json"
+  "deno.config": "deno.json",
+  "deno.suggest.imports.autoDiscover": true
 }

@@ -1,0 +1,50 @@
+html {
+  background-color: #dc082d;
+  color: white;
+  font-family:  Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pokemon-list-item h2 {
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.pokemon-list-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pokemon {
+  text-align: center;
+}
+
+a.bk {
+  color: white;
+  text-decoration: none;
+}
+
+.top-pokedex {
+  display: flex;
+  align-items: center;
+}
+.top-pokedex button {
+  border-radius: 5px;
+  background-color: deeppink;
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+  color: honeydew;
+}
+
+/*
+  NOTE: Another HACK:
+  To leverage the Vite asset system we set image source from CSS.
+  This is not desiderable bacause we want to kick off assets request
+  asap but there is now way to do this at the moment without compiling
+  deno source, so for now use this workaround.
+*/
+.salamence {
+  content: url('./salamence.png');
+  margin-right: 50px;
+  width: 100px;
+}
