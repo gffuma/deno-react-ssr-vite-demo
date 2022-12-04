@@ -11,14 +11,14 @@ App with React18 and streams.
 ```
 deno task dev
 ```
-Starts a development server at `http://localhost:4000` with HMR.
+Starts a development server at [http://localhost:4000](http://localhost:4000) with **HMR**.
 
 ## Production
 ```
 deno task build
 deno task start
 ```
-Build client for prodution and starts a production server at `http://localhost:5000`.
+Build client for prodution and starts a production server at [http://localhost:5000](http://localhost:5000).
 
 ## License
 MIT
