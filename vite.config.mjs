@@ -5,6 +5,7 @@ import react from 'npm:@vitejs/plugin-react@^2.1'
 export default defineConfig({
   plugins: [react()],
   build: {
+    manifest: true,
     rollupOptions: {
       input: ['./src/client.tsx']
     }

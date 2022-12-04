@@ -9,7 +9,8 @@
   },
   "tasks": {
     "dev": "deno run -A --unstable --node-modules-dir src/devServer.tsx",
-    "build": "deno run -A --unstable --node-modules-dir npm:vite build"
+    "build": "deno run -A --unstable --node-modules-dir npm:vite build",
+    "start": "NODE_ENV=production deno run -A --unstable --node-modules-dir src/server.tsx"
   },
   "importMap": "import_map.json"
 }

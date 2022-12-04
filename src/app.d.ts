@@ -11,5 +11,7 @@ interface ImportMetaEnv {
 }
 
 interface ImportMeta {
+  // deno-lint-ignore no-explicit-any
+  glob?(src: any, opts?: any): void
   env: ImportMetaEnv;
 }

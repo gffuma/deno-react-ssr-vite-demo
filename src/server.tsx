@@ -10,34 +10,16 @@ import {
   dehydrate,
 } from '@tanstack/react-query'
 import { Router } from 'itty-router'
-
-interface ViteInjectPayload {
-  head: string
-  runTimeScript: string
-}
-
-function getViteDevInjectHook(req: Request): InjectHTMLHook {
-  const viteInject = JSON.parse(
-    req.headers.get('x-vite-inject')!
-  ) as ViteInjectPayload
-  return {
-    afterHeadOpen: () => viteInject.head,
-    beforeBodyClose: () => viteInject.runTimeScript,
-  }
-}
+import { getViteInjectHook } from './viteInject.ts'
 
 const router = Router()
 
-router.get('/favicon.ico', async (req: Request) => {
-  return await serveFile(
-    req,
-    `${Deno.cwd()}/public${new URL(req.url).pathname}`
-  )
-})
-
-router.get('/assets/*', async (req: Request) => {
+async function serveDist(req: Request) {
   return await serveFile(req, `${Deno.cwd()}/dist${new URL(req.url).pathname}`)
-})
+}
+
+router.get('/favicon.ico', serveDist)
+router.get('/assets/*', serveDist)
 
 router.get('*', async (req: Request) => {
   const queryClient = new QueryClient({
@@ -78,7 +60,7 @@ router.get('*', async (req: Request) => {
             dehydrate(queryClient)
           )}</script>`,
       },
-      getViteDevInjectHook(req),
+      getViteInjectHook(req),
     ])
   )
 
