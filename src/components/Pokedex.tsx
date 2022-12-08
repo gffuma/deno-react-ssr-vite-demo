@@ -24,7 +24,7 @@ export default function Pokedex() {
 
   return (
     <div>
-      <h1>Deno Pokedex!</h1>
+      <h1>Deno Pokedex O.o</h1>
       <div className="top-pokedex">
         <img src={pkmImage} className="salamence" />
         <button onClick={() => setCounter(counter + 1)}>

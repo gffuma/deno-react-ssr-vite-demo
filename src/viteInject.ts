@@ -1,4 +1,5 @@
 import { InjectHTMLHook } from './streamUtils.ts'
+import { manifest } from './viteBuildManifest.ts'
 
 const isProd = Deno.env.get('NODE_ENV') === 'production'
 
@@ -18,9 +19,6 @@ function getViteDevInjectHook(req: Request): InjectHTMLHook {
 }
 
 function getViteProdInjectHook(): InjectHTMLHook {
-  const manifest = JSON.parse(
-    Deno.readTextFileSync(`${Deno.cwd()}/dist/manifest.json`)
-  )
   const css = new Set<string>()
   const scripts = new Set<string>()
   Object.keys(manifest).forEach((k) => {
