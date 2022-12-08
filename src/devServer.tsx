@@ -5,7 +5,7 @@ import proxy from 'npm:express-http-proxy'
 import {
   createServer as createViteServer,
   ViteDevServer,
-} from 'npm:vite@^3.1.3'
+} from 'npm:vite@^3.2.4'
 import { DEV_SERVER_PORT, APP_SERVER_PORT } from './consts.ts'
 
 function parseHeadFromHTML(html: string) {

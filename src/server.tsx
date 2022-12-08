@@ -1,3 +1,4 @@
+import './denoGlobals.ts'
 import { serve } from 'https://deno.land/std@0.167.0/http/server.ts'
 import { serveFile } from 'https://deno.land/std@0.167.0/http/file_server.ts'
 // @deno-types="https://cdn.jsdelivr.net/npm/@types/react-dom@18.0.9/server.d.ts"
