@@ -36,15 +36,7 @@ a.bk {
   color: honeydew;
 }
 
-/*
-  NOTE: Another HACK:
-  To leverage the Vite asset system we set image source from CSS.
-  This is not desiderable bacause we want to kick off assets request
-  asap but there is now way to do this at the moment without compiling
-  deno source, so for now use this workaround.
-*/
 .salamence {
-  content: url('./salamence.png');
   margin-right: 50px;
   width: 100px;
 }

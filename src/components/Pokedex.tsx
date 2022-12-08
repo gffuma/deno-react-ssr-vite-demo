@@ -4,6 +4,8 @@ import ky from 'ky'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 
+const pkmImage = __vite_import('./salamence.png', import.meta.url)
+
 interface PokemonListItem {
   name: string
 }
@@ -24,7 +26,7 @@ export default function Pokedex() {
     <div>
       <h1>Deno Pokedex!</h1>
       <div className="top-pokedex">
-        <img className="salamence" />
+        <img src={pkmImage} className="salamence" />
         <button onClick={() => setCounter(counter + 1)}>
           Very Counter: {counter}
         </button>

@@ -1,4 +1,4 @@
-import { defineConfig } from 'npm:vite@^3.1.3'
+import { defineConfig } from 'npm:vite'
 import react from 'npm:@vitejs/plugin-react@^2.1'
 import denoImport from './src/vitePluginDenoImport.ts'
 

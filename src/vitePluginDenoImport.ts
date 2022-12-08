@@ -1,9 +1,9 @@
-import { Plugin } from 'npm:vite@^3.2.4'
+import { Plugin } from 'vite'
 
 // Very stupid implementation to handle simple use cases
 // ... and without the overhead of use an AST parser
 const denoHackRe =
-  /((const|let)\s+([^= ]+)\s*=\s*)?(__vite_import)\s*\((('[^']*')|("[^"]*"))\s*\)/gm
+  /((const|let)\s+([^= ]+)\s*=\s*)?(__vite_import)\s*\((('[^']*')|("[^"]*"))(\s*,\s*(import\.meta\.url))?\s*\)/gm
 
 function replacer(
   _match: string,
